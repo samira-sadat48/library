@@ -1,8 +1,10 @@
 //DOM Elements
+const form = document.getElementById("book-form");
 const openFormTrigger = document.querySelector(".trigger");
 const closeFormTrigger = document.querySelector(".close");
 const formPopUp = document.querySelector(".form-popup");
-const form = document.getElementById("book-form");
+
+const submitFormTrigger = document.querySelector(".submit-btn");
 
 
 //Library Book Objects
@@ -10,44 +12,26 @@ let myLibrary = [];
 let newBook;
 
 function Book(title, author, numOfPages, haveRead) {
-    this.title = title;
-    this.author = author;
-    this.numOfPages = numOfPages;
-    this.haveRead = haveRead;
-    this.info = function() {
-        let haveReadString;
-        if(haveRead){
-            haveReadString = "already read";
-        }
-        else
-        {
-            haveReadString = "not read yet";
-        }
-        return `${title} by ${author}, ${numOfPages} pages, ${haveReadString}`;
-    }
+    this.title = title,
+    this.author = author,
+    this.numOfPages = numOfPages,
+    this.haveRead = haveRead
 }
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
-}
-
-//test code
-const book1 = new Book('Hope Never Dies','Andrew Shaffer',301,false);
-console.log(book1.info());
-addBookToLibrary(book1);
-console.log(myLibrary);
-
-//Form pop-up trigger
+//Form pop-up triggers
 openFormTrigger.addEventListener("click", () => {formPopUp.classList.add("open")});
 closeFormTrigger.addEventListener("click", () => formPopUp.classList.remove("open"));
+//submitFormTrigger.addEventListener("click", () => formPopUp.classList.remove("open"));//try to do this in the submit event
+
 window.addEventListener("click", (e) => {
     if(e.target === formPopUp) {
-        formPopUp.classList.remove("open")
+        formPopUp.classList.remove("open");
     }
 })
 
 //Submit button pressed
 form.addEventListener("submit", (e) => {
+    console.log("Submit event!");
     e.preventDefault();
     let formValues = e.target.elements;
     //create and save new book object using form fields
@@ -56,7 +40,7 @@ form.addEventListener("submit", (e) => {
         formValues.author.value,
         formValues.numOfPages.value,
         formValues.haveRead.checked
-    )
+    );
     //push to library list
     myLibrary.push(newBook);
     //reset form
