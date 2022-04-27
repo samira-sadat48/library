@@ -1,3 +1,5 @@
+let myLibrary = [];
+
 function Book(title, author, numOfPages, haveRead) {
     this.title = title;
     this.author = author;
@@ -16,6 +18,11 @@ function Book(title, author, numOfPages, haveRead) {
     }
 }
 
-const book1 = new Book('Hope Never Dies','Andrew Shaffer',301,false);
+function addBookToLibrary(book) {
+    myLibrary.push(book);
+}
 
-console.log(book1.info())
+const book1 = new Book('Hope Never Dies','Andrew Shaffer',301,false);
+console.log(book1.info());
+addBookToLibrary(book1);
+console.log(myLibrary);

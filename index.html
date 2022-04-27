@@ -5,9 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="books.js" defer></script>
 </head>
 <body>
+    <h1>Libray App</h1>
+    <h2>The Odin Project</h2>
     
+    <!--Button to add a new book-->
+    <button class="trigger" type="button">Add Book</button>
+    <!--Form-->
+    <div class="form-popup">
+        <form id="book-form" action="" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" id="title" class="title" required><br/>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" class="pages" required><br/>
+
+            <label for="pages">Pages:</label>
+            <input type="number" id="pages" class="pages" min="1" required></form><br/>
+
+            <label for="read">I have read the book:</label>
+            <input type="checkbox" id="read" class="read"><br/>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
