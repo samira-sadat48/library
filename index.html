@@ -16,7 +16,7 @@
     <button class="trigger" type="button">Add Book</button>
     <!--Form-->
     <div class="form-popup">
-        <form id="book-form" action="" method="POST" class="form-container">
+        <form id="book-form">
             <label for="title">Title:</label>
             <input type="text" id="title" class="title" required><br/>
 
@@ -24,7 +24,7 @@
             <input type="text" id="author" class="pages" required><br/>
 
             <label for="pages">Pages:</label>
-            <input type="number" id="pages" class="pages" min="1" required></form><br/>
+            <input type="number" id="pages" class="pages" min="1" required><br/>
 
             <label for="read">I have read the book:</label>
             <input type="checkbox" id="read" class="read"><br/>
@@ -33,5 +33,6 @@
             <button type="button" class="close">Close</button>
         </form>
     </div>
+    <p id="log"></p>
 </body>
 </html>
