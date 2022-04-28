@@ -3,6 +3,7 @@ const form = document.getElementById("book-form");
 const openFormTrigger = document.querySelector(".trigger");
 const closeFormTrigger = document.querySelector(".close");
 const formPopUp = document.querySelector(".form-popup");
+const libraryContainer = document.querySelector(".library-container");
 
 //Library Book Objects
 let myLibrary = [];
@@ -37,13 +38,50 @@ form.addEventListener("submit", (event) => {
         formValues.pages.value,
         formValues.read.checked
     );
-    
+
     //push to library list
     myLibrary.push(newBook);
     console.log(myLibrary);
+    displayBook(newBook);
     //reset form
     form.reset();
     //close the form
     formPopUp.classList.remove("open");
     return false;
 });
+
+//Display library on page
+const displayBook = function(book) {
+    //create a div for book with a class inside library
+    let bookContainer = document.createElement("div");
+    bookContainer.classList.add("book-container");
+    libraryContainer.appendChild(bookContainer);
+    
+    //Loop through and set up display book info
+    for (const [key,value] of Object.entries(book)) {
+        let p = document.createElement("p");
+        
+        switch(key){
+            case "title":
+                p.innerHTML = "Title: " + value;
+                p.classList.add("title");
+                break;
+            case "author":
+                p.innerHTML = "Author: " + value;
+                p.classList.add("author");
+                break;
+            case "numOfPages":
+                p.innerHTML = "Number of Pages: " + value;
+                p.classList.add("pages");
+                break;
+            case "haveRead":
+                p.innerHTML = "Have read already: " + value;
+                p.classList.add("read");
+                break;
+            default:
+        }
+        bookContainer.append(p);
+    }
+}
+
+//Display entire library after page refresh
