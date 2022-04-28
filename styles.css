@@ -1,5 +1,21 @@
+html {
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .form-popup {
     display: none;
+    text-align: center;
+    background-color: darkgrey;
+    padding: 20px;
+}
+
+form input{
+    margin-bottom: 10px;
 }
 
 .open {
